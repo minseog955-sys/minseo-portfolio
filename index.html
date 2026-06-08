@@ -102,6 +102,18 @@
         margin-top: 0.15em;
       }
 
+      .logo--works .works-click-caption {
+        display: block;
+        margin-top: 0.55em;
+        font-family: "Pretendard", "Inter", sans-serif;
+        font-size: clamp(0.62rem, 1.1vw, 0.78rem);
+        font-weight: 500;
+        letter-spacing: 0.02em;
+        text-transform: none;
+        color: var(--grey-text);
+        line-height: 1.4;
+      }
+
       .nav-col,
       .contact-col {
         display: flex;
@@ -395,66 +407,6 @@
         text-transform: uppercase;
         color: rgba(74, 83, 60, 0.45);
         z-index: 5;
-      }
-
-      .works-click-hint {
-        position: absolute;
-        top: clamp(5.5rem, 12vh, 7rem);
-        left: 50%;
-        transform: translateX(-50%);
-        display: inline-flex;
-        align-items: stretch;
-        gap: 0;
-        font-family: "Pretendard", "Inter", sans-serif;
-        font-size: clamp(12px, 1.6vw, 14px);
-        font-weight: 700;
-        letter-spacing: 0.02em;
-        line-height: 1;
-        z-index: 6;
-        pointer-events: none;
-        animation: works-hint-pulse 2.4s ease-in-out infinite;
-        white-space: nowrap;
-      }
-
-      .works-click-hint-text {
-        display: flex;
-        align-items: center;
-        padding: 0.55rem 0.85rem;
-        border: 2px solid var(--olive);
-        background: var(--white);
-        color: var(--olive);
-      }
-
-      .works-click-hint-arrow {
-        width: clamp(40px, 7vw, 52px);
-        margin-left: -2px;
-        background: var(--olive);
-        border: 2px solid var(--olive);
-        border-left: none;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-        align-self: stretch;
-        clip-path: polygon(0 0, 72% 0, 100% 50%, 72% 100%, 0 100%);
-      }
-
-      .works-click-hint-arrow svg {
-        width: clamp(14px, 2.5vw, 18px);
-        height: clamp(14px, 2.5vw, 18px);
-        margin-right: 12%;
-      }
-
-      @keyframes works-hint-pulse {
-        0%,
-        100% {
-          opacity: 1;
-          transform: translateX(-50%) translateY(0);
-        }
-        50% {
-          opacity: 0.82;
-          transform: translateX(-50%) translateY(-4px);
-        }
       }
 
       /* ── Footer / 마지막 페이지 ── */
@@ -855,7 +807,6 @@
         color: rgba(255, 211, 232, 0.92);
       }
 
-      .about-section--korean .about-section-title,
       .about-section--korean .about-edu-school,
       .about-section--korean .about-edu-date,
       .about-section--korean .about-edu-detail,
@@ -863,10 +814,6 @@
         font-family: "Pretendard", "Inter", sans-serif;
         text-transform: none;
         letter-spacing: -0.01em;
-      }
-
-      .about-section--korean .about-section-title {
-        letter-spacing: 0.04em;
       }
 
       .about-section--korean .about-edu-school {
@@ -1159,6 +1106,7 @@
           <a href="#home">Home</a>
           <a href="#tools">Tools</a>
           <a href="#works">Works</a>
+          <a href="#about" class="nav-about-link">About Me</a>
         </nav>
         <div class="contact-col">
           <a
@@ -1186,13 +1134,15 @@
     <section class="works-zone" id="works">
       <div class="works-sticky">
         <header class="site-header">
-          <a href="#home" class="logo">
+          <a href="#home" class="logo logo--works">
             <span>WORK</span>
+            <span class="works-click-caption">이미지를 클릭해보세요</span>
           </a>
           <nav class="nav-col">
             <a href="#home">Home</a>
             <a href="#tools">Tools</a>
             <a href="#works">Works</a>
+            <a href="#about" class="nav-about-link">About Me</a>
           </nav>
           <div class="contact-col">
             <a
@@ -1208,21 +1158,6 @@
         <div class="works-viewport">
           <div class="works-track" id="works-track"></div>
         </div>
-
-        <p class="works-click-hint">
-          <span class="works-click-hint-text">이미지를 클릭해보세요</span>
-          <span class="works-click-hint-arrow" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path
-                d="M13 7l5 5-5 5"
-                stroke="#FFD3E8"
-                stroke-width="2.5"
-                stroke-linecap="square"
-                stroke-linejoin="miter"
-              />
-            </svg>
-          </span>
-        </p>
 
         <p class="scroll-progress" id="scroll-progress">Scroll ↓</p>
       </div>
@@ -1290,6 +1225,7 @@
           <a href="#home">Home</a>
           <a href="#tools">Tools</a>
           <a href="#works">Works</a>
+          <a href="#about" class="nav-about-link">About Me</a>
         </nav>
         <nav class="footer-col footer-contact">
           <a
@@ -1360,10 +1296,10 @@
 
           <div class="about-col-info">
             <section class="about-section about-section--korean">
-              <h3 class="about-section-title">학력</h3>
+              <h3 class="about-section-title">Education</h3>
               <div class="about-edu-item">
                 <div class="about-edu-row">
-                  <p class="about-edu-school">부천정흥고등학교</p>
+                  <p class="about-edu-school">부천중흥고등학교</p>
                   <p class="about-edu-date">2023년 졸업</p>
                 </div>
               </div>
@@ -1384,7 +1320,7 @@
             </section>
 
             <section class="about-section about-section--korean">
-              <h3 class="about-section-title">대외활동</h3>
+              <h3 class="about-section-title">Activities</h3>
               <div class="about-edu-item">
                 <div class="about-edu-row">
                   <p class="about-edu-school">대한민국청소년의회 인턴피디</p>
@@ -1394,11 +1330,11 @@
             </section>
 
             <section class="about-section about-section--korean">
-              <h3 class="about-section-title">취미</h3>
+              <h3 class="about-section-title">Hobbies</h3>
               <ul class="about-list">
                 <li>영상 편집 및 비주얼 디자인 심화</li>
                 <li>세계 각국의 영화 탐구</li>
-                <li>언더그라운드 힙합 발굴 및 큐레이션</li>
+                <li>힙합 음악 듣기</li>
               </ul>
             </section>
 
@@ -1643,6 +1579,12 @@
       }
 
       aboutTrigger.addEventListener("click", openAboutModal);
+      document.querySelectorAll(".nav-about-link").forEach((el) => {
+        el.addEventListener("click", (e) => {
+          e.preventDefault();
+          openAboutModal();
+        });
+      });
       aboutModal.querySelectorAll("[data-close-about]").forEach((el) => {
         el.addEventListener("click", closeAboutModal);
       });
