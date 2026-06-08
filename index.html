@@ -10,6 +10,16 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,500&family=Inter:wght@400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
     <style>
       *,
       *::before,
@@ -385,6 +395,64 @@
         text-transform: uppercase;
         color: rgba(74, 83, 60, 0.45);
         z-index: 5;
+      }
+
+      .works-click-hint {
+        position: absolute;
+        bottom: 3.75rem;
+        right: clamp(1.5rem, 4vw, 2.5rem);
+        display: inline-flex;
+        align-items: stretch;
+        gap: 0;
+        font-family: "Pretendard", "Inter", sans-serif;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        line-height: 1;
+        z-index: 6;
+        pointer-events: none;
+        animation: works-hint-pulse 2.4s ease-in-out infinite;
+      }
+
+      .works-click-hint-text {
+        display: flex;
+        align-items: center;
+        padding: 0.55rem 0.85rem;
+        border: 2px solid var(--olive);
+        background: var(--white);
+        color: var(--olive);
+      }
+
+      .works-click-hint-arrow {
+        width: clamp(40px, 7vw, 52px);
+        margin-left: -2px;
+        background: var(--olive);
+        border: 2px solid var(--olive);
+        border-left: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        align-self: stretch;
+        clip-path: polygon(0 0, 72% 0, 100% 50%, 72% 100%, 0 100%);
+      }
+
+      .works-click-hint-arrow svg {
+        width: clamp(14px, 2.5vw, 18px);
+        height: clamp(14px, 2.5vw, 18px);
+        margin-right: 12%;
+      }
+
+      @keyframes works-hint-pulse {
+        0%,
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        50% {
+          opacity: 0.72;
+          transform: translateY(-3px);
+        }
       }
 
       /* ── Footer / 마지막 페이지 ── */
@@ -785,6 +853,29 @@
         color: rgba(255, 211, 232, 0.92);
       }
 
+      .about-section--korean .about-section-title,
+      .about-section--korean .about-edu-school,
+      .about-section--korean .about-edu-date,
+      .about-section--korean .about-edu-detail,
+      .about-section--korean .about-list li {
+        font-family: "Pretendard", "Inter", sans-serif;
+        text-transform: none;
+        letter-spacing: -0.01em;
+      }
+
+      .about-section--korean .about-section-title {
+        letter-spacing: 0.04em;
+      }
+
+      .about-section--korean .about-edu-school {
+        font-weight: 600;
+        max-width: none;
+      }
+
+      .about-section--korean .about-list li {
+        font-weight: 400;
+      }
+
       .about-contact-row {
         display: grid;
         grid-template-columns: 6.5rem 1fr;
@@ -1116,6 +1207,21 @@
           <div class="works-track" id="works-track"></div>
         </div>
 
+        <p class="works-click-hint" aria-hidden="true">
+          <span class="works-click-hint-text">이미지를 클릭해보세요</span>
+          <span class="works-click-hint-arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path
+                d="M13 7l5 5-5 5"
+                stroke="#FFD3E8"
+                stroke-width="2.5"
+                stroke-linecap="square"
+                stroke-linejoin="miter"
+              />
+            </svg>
+          </span>
+        </p>
+
         <p class="scroll-progress" id="scroll-progress">Scroll ↓</p>
       </div>
     </section>
@@ -1251,36 +1357,46 @@
           </div>
 
           <div class="about-col-info">
-            <section class="about-section">
-              <h3 class="about-section-title">Education</h3>
+            <section class="about-section about-section--korean">
+              <h3 class="about-section-title">학력</h3>
               <div class="about-edu-item">
                 <div class="about-edu-row">
-                  <p class="about-edu-school">Bucheon Jungheung High School</p>
-                  <p class="about-edu-date">Graduated 2023</p>
+                  <p class="about-edu-school">부천정흥고등학교</p>
+                  <p class="about-edu-date">2023년 졸업</p>
                 </div>
               </div>
               <div class="about-edu-item">
                 <div class="about-edu-row">
-                  <p class="about-edu-school">Seoul Institute of the Arts</p>
-                  <p class="about-edu-date">Entered 2024</p>
+                  <p class="about-edu-school">서울예술대학교</p>
+                  <p class="about-edu-date">2024년 입학</p>
                 </div>
-                <p class="about-edu-detail">Digital Art Major</p>
+                <p class="about-edu-detail">디지털아트 전공</p>
               </div>
               <div class="about-edu-item">
                 <div class="about-edu-row">
-                  <p class="about-edu-school">Seoul Institute of the Arts</p>
-                  <p class="about-edu-date">Graduated 2027</p>
+                  <p class="about-edu-school">서울예술대학교</p>
+                  <p class="about-edu-date">2027년 졸업</p>
                 </div>
-                <p class="about-edu-detail">Digital Art Major</p>
+                <p class="about-edu-detail">디지털아트 전공</p>
               </div>
             </section>
 
-            <section class="about-section">
-              <h3 class="about-section-title">Hobbies</h3>
+            <section class="about-section about-section--korean">
+              <h3 class="about-section-title">대외활동</h3>
+              <div class="about-edu-item">
+                <div class="about-edu-row">
+                  <p class="about-edu-school">대한민국청소년의회 인턴피디</p>
+                  <p class="about-edu-date">2026.06 ~ 2027.02</p>
+                </div>
+              </div>
+            </section>
+
+            <section class="about-section about-section--korean">
+              <h3 class="about-section-title">취미</h3>
               <ul class="about-list">
-                <li>Advancing cinematic editing &amp; visual design</li>
-                <li>Exploring global cinema across cultures</li>
-                <li>Curating underground hip-hop discoveries</li>
+                <li>영상 편집 및 비주얼 디자인 심화</li>
+                <li>세계 각국의 영화 탐구</li>
+                <li>언더그라운드 힙합 발굴 및 큐레이션</li>
               </ul>
             </section>
 
