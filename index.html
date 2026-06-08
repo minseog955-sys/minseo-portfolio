@@ -106,11 +106,11 @@
         display: block;
         margin-top: 0.55em;
         font-family: "Pretendard", "Inter", sans-serif;
-        font-size: clamp(0.62rem, 1.1vw, 0.78rem);
-        font-weight: 500;
-        letter-spacing: 0.02em;
+        font-size: clamp(0.9rem, 1.8vw, 1.05rem);
+        font-weight: 600;
+        letter-spacing: 0.01em;
         text-transform: none;
-        color: var(--grey-text);
+        color: rgba(74, 83, 60, 0.72);
         line-height: 1.4;
       }
 
@@ -119,6 +119,13 @@
         display: flex;
         flex-direction: column;
         gap: 0.15rem;
+      }
+
+      .nav-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.2rem 1.75rem;
+        align-content: start;
       }
 
       .contact-col {
@@ -547,9 +554,10 @@
       }
 
       .footer-col {
-        display: flex;
-        flex-direction: column;
-        gap: 0.1rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.15rem 1.75rem;
+        align-content: start;
       }
 
       .footer-contact {
@@ -713,13 +721,40 @@
         align-items: start;
       }
 
+      .about-profile-photo-wrap {
+        width: min(100%, 220px);
+        margin-bottom: 1.25rem;
+        overflow: hidden;
+        border: 2px solid var(--pink);
+        background: rgba(255, 211, 232, 0.08);
+      }
+
+      .about-profile-photo {
+        display: block;
+        width: 100%;
+        aspect-ratio: 3 / 4;
+        object-fit: cover;
+        object-position: center top;
+      }
+
       .about-profile-name {
         font-size: clamp(1.35rem, 2.8vw, 2rem);
         font-weight: 900;
         letter-spacing: 0.08em;
         text-transform: uppercase;
         line-height: 1.1;
-        margin-bottom: 0.75rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .about-profile-major {
+        font-family: "Pretendard", "Inter", sans-serif;
+        font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        text-transform: none;
+        line-height: 1.5;
+        color: var(--pink);
+        margin-bottom: 0.35rem;
       }
 
       .about-profile-meta {
@@ -1272,11 +1307,17 @@
         <h2 class="about-modal-title" id="about-modal-title">About Me</h2>
         <div class="about-modal-grid">
           <div class="about-profile">
+            <div class="about-profile-photo-wrap">
+              <img
+                class="about-profile-photo"
+                src="images/profile.png"
+                alt="김민서 Kim Min Seo"
+                loading="lazy"
+              />
+            </div>
             <p class="about-profile-name">Kim Min Seo</p>
-            <p class="about-profile-meta">
-              Digital Art<br />
-              Seoul, Korea
-            </p>
+            <p class="about-profile-major">디지털아트 전공</p>
+            <p class="about-profile-meta">Seoul, Korea</p>
           </div>
 
           <div class="about-col-software">
@@ -1323,7 +1364,7 @@
               <h3 class="about-section-title">Activities</h3>
               <div class="about-edu-item">
                 <div class="about-edu-row">
-                  <p class="about-edu-school">대한민국청소년의회 인턴피디</p>
+                  <p class="about-edu-school">대한민국청소년의회 인턴PD</p>
                   <p class="about-edu-date">2026.06 ~ 2027.02</p>
                 </div>
               </div>
