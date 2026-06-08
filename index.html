@@ -243,15 +243,20 @@
 
       .cover-preview {
         display: flex;
-        gap: clamp(1rem, 3vw, 2.5rem);
+        gap: clamp(0.75rem, 1.8vw, 2rem);
         padding: 2rem 2.5rem 2.5rem;
         overflow: hidden;
         align-items: flex-end;
+        justify-content: center;
       }
 
       .preview-item {
-        flex: 0 0 auto;
-        width: clamp(160px, 22vw, 280px);
+        flex: 0 1 auto;
+        width: clamp(140px, 18vw, 260px);
+      }
+
+      .preview-item:nth-child(n + 5) {
+        display: none;
       }
 
       .preview-item img,
@@ -400,7 +405,43 @@
       }
 
       .preview-item.is-landscape {
-        width: clamp(200px, 28vw, 340px);
+        width: clamp(180px, 24vw, 300px);
+      }
+
+      @media (min-width: 1600px) {
+        .preview-item:nth-child(n + 5) {
+          display: block;
+        }
+
+        .preview-item {
+          width: clamp(130px, calc((100vw - 12rem) / 6.5), 210px);
+        }
+
+        .preview-item.is-landscape {
+          width: clamp(160px, calc((100vw - 10rem) / 5.2), 280px);
+        }
+
+        .preview-item:nth-child(4) {
+          margin-bottom: 2rem;
+        }
+
+        .preview-item:nth-child(5) {
+          margin-bottom: 1.25rem;
+        }
+
+        .preview-item:nth-child(6) {
+          margin-bottom: 2.75rem;
+        }
+      }
+
+      @media (min-width: 2000px) {
+        .preview-item {
+          width: clamp(150px, calc((100vw - 14rem) / 6.2), 240px);
+        }
+
+        .preview-item.is-landscape {
+          width: clamp(180px, calc((100vw - 12rem) / 5), 320px);
+        }
       }
 
       .scroll-progress {
@@ -1556,7 +1597,7 @@
       const modalTools = document.getElementById("modal-tools");
       const modalYoutube = document.getElementById("modal-youtube");
 
-      projects.slice(0, 4).forEach((project) => {
+      projects.forEach((project) => {
         const item = document.createElement("div");
         item.className = project.coverAspect ? "preview-item is-landscape" : "preview-item";
         item.innerHTML = `
