@@ -721,9 +721,17 @@
         align-items: start;
       }
 
+      .about-profile {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: minmax(260px, 320px) 1fr;
+        gap: clamp(1.5rem, 4vw, 2.75rem);
+        align-items: start;
+        margin-bottom: clamp(0.5rem, 2vw, 1.5rem);
+      }
+
       .about-profile-photo-wrap {
-        width: min(100%, 220px);
-        margin-bottom: 1.25rem;
+        width: 100%;
         overflow: hidden;
         border: 2px solid var(--pink);
         background: rgba(255, 211, 232, 0.08);
@@ -743,15 +751,28 @@
         letter-spacing: 0.08em;
         text-transform: uppercase;
         line-height: 1.1;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .about-profile-bio {
+        font-family: "Pretendard", "Inter", sans-serif;
+        font-size: clamp(0.82rem, 1.2vw, 0.92rem);
+        font-weight: 400;
+        letter-spacing: -0.01em;
+        line-height: 1.85;
+        color: rgba(255, 211, 232, 0.92);
+        margin-bottom: 1.25rem;
+      }
+
+      .about-profile-bio p + p {
+        margin-top: 0.9rem;
       }
 
       .about-profile-major {
-        font-family: "Pretendard", "Inter", sans-serif;
-        font-size: clamp(0.95rem, 1.6vw, 1.1rem);
-        font-weight: 600;
-        letter-spacing: 0.02em;
-        text-transform: none;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
         line-height: 1.5;
         color: var(--pink);
         margin-bottom: 0.35rem;
@@ -896,13 +917,21 @@
         }
 
         .about-profile {
-          grid-column: 1 / -1;
+          grid-template-columns: minmax(220px, 280px) 1fr;
         }
       }
 
       @media (max-width: 640px) {
         .about-modal-grid {
           grid-template-columns: 1fr;
+        }
+
+        .about-profile {
+          grid-template-columns: 1fr;
+        }
+
+        .about-profile-photo-wrap {
+          max-width: 320px;
         }
 
         .about-edu-row {
@@ -1315,9 +1344,25 @@
                 loading="lazy"
               />
             </div>
-            <p class="about-profile-name">Kim Min Seo</p>
-            <p class="about-profile-major">디지털아트 전공</p>
-            <p class="about-profile-meta">Seoul, Korea</p>
+            <div class="about-profile-text">
+              <p class="about-profile-name">Kim Min Seo</p>
+              <div class="about-profile-bio">
+                <p>안녕하세요. 서울예술대학교에 재학 중인 김민서입니다.</p>
+                <p>
+                  저는 새로운 것에 대한 호기심을 바탕으로 끊임없이 실험하고 도전하는 창작자입니다. 기존의
+                  방식에 안주하기보다 새로운 표현 방법과 매체를 탐구하며 작업에 적용하는 과정을
+                  즐깁니다. 디자인을 공부하며 시각적 사고를 길러왔고, 현재는 공간과 관객의 경험을
+                  연결하는 인스톨레이션 작업을 중심으로 활동하고 있습니다.
+                </p>
+                <p>
+                  특히 기억과 감정, 그리고 그것이 공간 속에서 어떻게 경험되는지에 관심을 가지고
+                  있으며, 관객이 작품 속에서 직접 참여하고 의미를 발견할 수 있는 환경을 만드는 것을
+                  목표로 합니다.
+                </p>
+              </div>
+              <p class="about-profile-major">Digital Art</p>
+              <p class="about-profile-meta">Seoul, Korea</p>
+            </div>
           </div>
 
           <div class="about-col-software">
