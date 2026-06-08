@@ -399,19 +399,21 @@
 
       .works-click-hint {
         position: absolute;
-        bottom: 3.75rem;
-        right: clamp(1.5rem, 4vw, 2.5rem);
+        top: clamp(5.5rem, 12vh, 7rem);
+        left: 50%;
+        transform: translateX(-50%);
         display: inline-flex;
         align-items: stretch;
         gap: 0;
         font-family: "Pretendard", "Inter", sans-serif;
-        font-size: 10px;
+        font-size: clamp(12px, 1.6vw, 14px);
         font-weight: 700;
-        letter-spacing: 0.04em;
+        letter-spacing: 0.02em;
         line-height: 1;
         z-index: 6;
         pointer-events: none;
         animation: works-hint-pulse 2.4s ease-in-out infinite;
+        white-space: nowrap;
       }
 
       .works-click-hint-text {
@@ -447,11 +449,11 @@
         0%,
         100% {
           opacity: 1;
-          transform: translateY(0);
+          transform: translateX(-50%) translateY(0);
         }
         50% {
-          opacity: 0.72;
-          transform: translateY(-3px);
+          opacity: 0.82;
+          transform: translateX(-50%) translateY(-4px);
         }
       }
 
@@ -1207,7 +1209,7 @@
           <div class="works-track" id="works-track"></div>
         </div>
 
-        <p class="works-click-hint" aria-hidden="true">
+        <p class="works-click-hint">
           <span class="works-click-hint-text">이미지를 클릭해보세요</span>
           <span class="works-click-hint-arrow" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none">
