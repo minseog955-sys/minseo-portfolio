@@ -225,9 +225,9 @@
       }
 
       .cover-title {
-        font-size: clamp(2.4rem, 8.4vw, 7rem);
+        font-size: clamp(2.65rem, 9.2vw, 7.75rem);
         font-weight: 900;
-        letter-spacing: -0.055em;
+        letter-spacing: -0.05em;
         line-height: 0.95;
         white-space: nowrap;
         max-width: 97vw;
@@ -1486,6 +1486,45 @@
 
       const projects = [
         {
+          id: "banyeong",
+          title: "반영실",
+          category: "2025 DIAF 전시 · 2025",
+          cover: "images/banyeong-cover.png",
+          coverAspect: "725 / 1024",
+          images: [
+            "images/banyeong-1.png",
+            "images/banyeong-2.png",
+            "images/banyeong-3.png",
+            "images/banyeong-4.png",
+            "images/banyeong-5.png",
+            "images/banyeong-6.png",
+            "images/banyeong-7.png",
+          ],
+          role: "담당 역할 — Tech · Mapping · Hardware 연결",
+          description:
+            "2025 DIAF에서 선보인 인터랙티브 미디어 설치 작품. MadMapper를 활용한 프로젝션 매핑, LED·센서 하드웨어 연결, 전시 공간 내 인터랙션 시스템 구축을 맡아 제작에 참여했다.",
+          tools: "MadMapper · Arduino · Hardware",
+          youtube: "https://youtu.be/T60L7KicXgM",
+        },
+        {
+          id: "memory-run",
+          title: "Memory Run",
+          category: "미니게임 · 2025",
+          cover: "images/memory-run-cover.png",
+          coverAspect: "1024 / 560",
+          images: [
+            "images/memory-run-1.png",
+            "images/memory-run-2.png",
+            "images/memory-run-3.png",
+            "images/memory-run-4.png",
+            "images/memory-run-5.png",
+          ],
+          description:
+            "Unity와 Photoshop, Illustrator로 제작한 2D 픽셀 아트 플랫포머 미니게임. 장애물을 피하고 과일을 수집해 목표에 도달하는 구조로, 레트로 감성의 비주얼과 직관적인 조작감을 중심으로 완성했다.",
+          tools: "Unity · Photoshop · Illustrator",
+          youtube: "https://youtu.be/YlNGb_AKOm4",
+        },
+        {
           id: "innocence",
           title: "Innocence Of Childhood",
           category: "기획 및 제작 · 2024",
@@ -1533,24 +1572,6 @@
           youtube: "https://youtu.be/2Hl9hWIIJ4c",
         },
         {
-          id: "memory-run",
-          title: "Memory Run",
-          category: "미니게임 · 2025",
-          cover: "images/memory-run-cover.png",
-          coverAspect: "1024 / 560",
-          images: [
-            "images/memory-run-1.png",
-            "images/memory-run-2.png",
-            "images/memory-run-3.png",
-            "images/memory-run-4.png",
-            "images/memory-run-5.png",
-          ],
-          description:
-            "Unity와 Photoshop, Illustrator로 제작한 2D 픽셀 아트 플랫포머 미니게임. 장애물을 피하고 과일을 수집해 목표에 도달하는 구조로, 레트로 감성의 비주얼과 직관적인 조작감을 중심으로 완성했다.",
-          tools: "Unity · Photoshop · Illustrator",
-          youtube: "https://youtu.be/YlNGb_AKOm4",
-        },
-        {
           id: "avatar",
           title: "아바타 만들기",
           category: "인터랙티브 게임 · 2024",
@@ -1566,27 +1587,6 @@
           description:
             "Unity와 Arduino로 제작한 아바타 생성 인터랙티브 게임. 플레이어가 만든 캐릭터가 하드웨어 LCD 화면에 실시간으로 표시되도록 회로 연결과 디스플레이 출력을 담당했다.",
           tools: "Unity · Arduino · Visual Studio Code",
-        },
-        {
-          id: "banyeong",
-          title: "반영실",
-          category: "2025 DIAF 전시 · 2025",
-          cover: "images/banyeong-cover.png",
-          coverAspect: "725 / 1024",
-          images: [
-            "images/banyeong-1.png",
-            "images/banyeong-2.png",
-            "images/banyeong-3.png",
-            "images/banyeong-4.png",
-            "images/banyeong-5.png",
-            "images/banyeong-6.png",
-            "images/banyeong-7.png",
-          ],
-          role: "담당 역할 — Tech · Mapping · Hardware 연결",
-          description:
-            "2025 DIAF에서 선보인 인터랙티브 미디어 설치 작품. MadMapper를 활용한 프로젝션 매핑, LED·센서 하드웨어 연결, 전시 공간 내 인터랙션 시스템 구축을 맡아 제작에 참여했다.",
-          tools: "MadMapper · Arduino · Hardware",
-          youtube: "https://youtu.be/T60L7KicXgM",
         },
       ];
 
