@@ -113,7 +113,31 @@
         color: rgba(74, 83, 60, 0.72);
         line-height: 1.4;
       }
+		.work-categories {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.8rem;
+  flex-wrap: wrap;
+}
 
+.category-btn {
+  border: 1px solid rgba(74,83,60,0.3);
+  background: transparent;
+  color: var(--olive);
+  padding: 0.35rem 0.7rem;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.category-btn:hover,
+.category-btn.active {
+  background: var(--olive);
+  color: var(--pink);
+}
       .nav-col,
       .contact-col {
         display: flex;
@@ -212,13 +236,13 @@
         font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
         font-style: italic;
         font-weight: 500;
-        font-size: clamp(3rem, 8vw, 6rem);
+        font-size: clamp(4rem, 9vw, 7rem);
         letter-spacing: -0.01em;
         line-height: 1;
         text-transform: lowercase;
         color: var(--olive);
-        transform: rotate(-3deg);
-        margin-bottom: clamp(-0.55rem, -1.1vw, -0.3rem);
+        transform: rotate(-4deg);
+        margin-bottom: clamp(-1.7rem, -1.8vw, -0.8rem);
         position: relative;
         z-index: 2;
         pointer-events: none;
@@ -1224,10 +1248,31 @@
     <section class="works-zone" id="works">
       <div class="works-sticky">
         <header class="site-header">
-          <a href="#home" class="logo logo--works">
+          <div class="logo logo--works">
             <span>WORK</span>
+          
+            <div class="work-categories">
+              <button class="category-btn active" data-category="all">
+                All
+              </button>
+          
+              <button class="category-btn" data-category="installation">
+                Installation
+              </button>
+          
+              <button class="category-btn" data-category="interactive">
+                Interactive
+              </button>
+          
+              <button class="category-btn" data-category="film">
+                Film
+              </button>
+            </div>
+          
             <span class="works-click-caption">이미지를 클릭해보세요</span>
-          </a>
+
+            
+          </div>
           <nav class="nav-col">
             <a href="#home">Home</a>
             <a href="#tools">Tools</a>
@@ -1489,6 +1534,7 @@
           id: "banyeong",
           title: "반영실",
           category: "2025 DIAF 전시 · 2025",
+		  categoryType: "installation",
           cover: "images/banyeong-1.png",
           coverAspect: "725 / 1024",
           images: [
@@ -1510,6 +1556,7 @@
           id: "memory-run",
           title: "Memory Run",
           category: "미니게임 · 2025",
+		  categoryType: "interactive",
           cover: "images/memory-run-cover.png",
           coverAspect: "1024 / 560",
           images: [
@@ -1528,6 +1575,7 @@
           id: "innocence",
           title: "Innocence Of Childhood",
           category: "기획 및 제작 · 2024",
+		  categoryType: "installation",
           cover: "images/innocence-cover.png",
           images: [
             "images/innocence-1.png",
@@ -1544,6 +1592,7 @@
           id: "dongsang",
           title: "동상이몽",
           category: "기획 및 제작 · 2024",
+		  categoryType: "installation",
           cover: "images/dongsang-cover.png",
           images: [
             "images/dongsang-1.png",
@@ -1562,6 +1611,7 @@
           id: "backroom",
           title: "The backroom",
           category: "단편 영화 · 2024",
+		  categoryType: "film",
           cover: "images/backroom-cover.png",
           coverAspect: "1024 / 576",
           images: ["images/backroom-cover.png"],
@@ -1575,6 +1625,7 @@
           id: "avatar",
           title: "아바타 만들기",
           category: "인터랙티브 게임 · 2024",
+	      categoryType: "interactive",
           cover: "images/avatar-cover.png",
           coverAspect: "1024 / 576",
           images: [
@@ -1637,6 +1688,48 @@
           modalMedia.appendChild(img);
         });
       }
+		const categoryButtons = document.querySelectorAll(".category-btn");
+
+categoryButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const selected = button.dataset.category;
+
+    categoryButtons.forEach((b) =>
+      b.classList.remove("active")
+    );
+    button.classList.add("active");
+
+    track.innerHTML = "";
+
+    projects
+      .filter(
+        (project) =>
+          selected === "all" ||
+          project.categoryType === selected
+      )
+      .forEach((project) => {
+        const btn = document.createElement("button");
+
+        btn.type = "button";
+        btn.className = "work-item";
+
+        btn.innerHTML = `
+          <div class="work-thumb">
+            ${workImgMarkup(project, project.title)}
+          </div>
+          <p class="work-label">${project.title}</p>
+        `;
+
+        btn.addEventListener("click", () =>
+          openModal(project)
+        );
+
+        track.appendChild(btn);
+      });
+
+    updateWorksScroll();
+  });
+});
 
       function openModal(project) {
         renderModalMedia(project);
